@@ -9,7 +9,6 @@ class AppDateUtils:
         now = datetime.datetime.now()
         return AppDate(now.day, now.month, now.year)
 
-
     # Get month name from AppDate object
     # @return month name such as 'June'
     @staticmethod
