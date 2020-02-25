@@ -9,3 +9,7 @@ class AppFileUtils:
             os.remove(filePath)
         else:
             print('The file ' + filePath + ' does not exist !')
+
+    @staticmethod
+    def deleteDir(folderPath):
+        os.rmdir(folderPath)
