@@ -1,8 +1,12 @@
 import matplotlib.pyplot as plt
-import numpy as np
 
 
 class MatplotlibHelper:
+    name = 'matplotlib'
+
+    def __init__(self):
+        name = 'matplotlib'
+
 
     # Display a Line chart
     # @param list1: a list of number
@@ -11,9 +15,10 @@ class MatplotlibHelper:
     def showLineChart(title, xLabel, yLabel, width, heigh, list1, list2):
         plt.title(title)
         plt.xlabel(xLabel)
-        plt.yLabel(yLabel)
+        # plt.yLabel(yLabel)
         plt.figure(figsize=(width, heigh))
         plt.plot(list1, list2)
+        # plt.plot(list1)
         # plt.plot(list1, list2, "go")
         plt.show()
 
@@ -40,3 +45,9 @@ class MatplotlibHelper:
         plt.axis(True)
         plt.legend(legend)
         plt.show()
+
+
+# binh = MatplotlibHelper()
+# binh.showPieChart("Legend", ['a', 'b', 'c'], [10, 40, 50], [0, 0.1, 0])
+# binh.showBarChart("Title", 'xLabel', 'yLabel', ['a', 'b', 'c'], [12, 17, 20], 'green', False)
+# binh.showLineChart('Title', 'xLabel', 'yLabel', 10, 40, [1, 3, 5], [8, 6, 9])

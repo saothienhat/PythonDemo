@@ -19,4 +19,4 @@ class AppDate:
 
     def setYear(self, year): self.year = year
 
-    def toAppDate(day, month, year): return AppDate(day, month, year    )
+    def toAppDate(day, month, year): return AppDate(day, month, year)
