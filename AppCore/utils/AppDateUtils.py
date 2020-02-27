@@ -1,5 +1,5 @@
 import datetime
-from ..model import AppDate
+from AppCore.model import AppDate
 
 
 class AppDateUtils:

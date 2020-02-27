@@ -1,5 +1,6 @@
-from AppCore.utils.MatplotlibHelper import MatplotlibHelper
+# from AppCore.utils.MatplotlibHelper import MatplotlibHelper
 
+from AppCore.utils import MatplotlibHelper
 
 class AppMain:
     matplotlibHelper = None
@@ -24,4 +25,5 @@ Display Line Chart
 """
 # appMain.showSimpleLine()
 
-appMain.showAllMarkersInfo()
+# Show all markers' name and description in Matplotlib library
+# appMain.showAllMarkersInfo()
