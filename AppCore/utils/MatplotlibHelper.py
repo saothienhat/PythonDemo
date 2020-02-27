@@ -1,25 +1,21 @@
 import matplotlib.pyplot as plt
 
 
+# References: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.plot.html
 class MatplotlibHelper:
-    name = 'matplotlib'
-
-    def __init__(self):
-        name = 'matplotlib'
-
 
     # Display a Line chart
     # @param list1: a list of number
     # @param list2: a list of number
     @staticmethod
-    def showLineChart(title, xLabel, yLabel, width, heigh, list1, list2):
+    def showLineChart(title, xLabel, yLabel, width, heigh, xDataList, yDataList):
         plt.title(title)
         plt.xlabel(xLabel)
-        # plt.yLabel(yLabel)
         plt.figure(figsize=(width, heigh))
-        plt.plot(list1, list2)
-        # plt.plot(list1)
-        # plt.plot(list1, list2, "go")
+        # plt.plot(xDataList, yDataList)
+        # plt.plot(xDataList)
+        # plt.plot(xDataList, yDataList, "go")
+        plt.plot(xDataList, yDataList, color='green', marker='o', linestyle='dashed', linewidth=1, markersize=12)
         plt.show()
 
     # Display a Bar chart
@@ -46,8 +42,26 @@ class MatplotlibHelper:
         plt.legend(legend)
         plt.show()
 
-
-# binh = MatplotlibHelper()
-# binh.showPieChart("Legend", ['a', 'b', 'c'], [10, 40, 50], [0, 0.1, 0])
-# binh.showBarChart("Title", 'xLabel', 'yLabel', ['a', 'b', 'c'], [12, 17, 20], 'green', False)
-# binh.showLineChart('Title', 'xLabel', 'yLabel', 10, 40, [1, 3, 5], [8, 6, 9])
+    # Show all markers' name and description in Matplotlib library
+    @staticmethod
+    def showAllMarkersInfo():
+        markers = ['.', ',', 'o', 'v', '^', '<', '>', '1', '2', '3', '4', '8', 's', 'p', 'P', '*', 'h', 'H', '+', 'x',
+                   'X', 'D', 'd', '|', '_']
+        descriptions = ['point', 'pixel', 'circle', 'triangle_down', 'triangle_up', 'triangle_left', 'triangle_right',
+                        'tri_down', 'tri_up', 'tri_left', 'tri_right', 'octagon', 'square', 'pentagon', 'plus (filled)',
+                        'star', 'hexagon1', 'hexagon2', 'plus', 'x', 'x (filled)', 'diamond', 'thin_diamond', 'vline',
+                        'hline']
+        x = []
+        y = []
+        for i in range(5):
+            for j in range(5):
+                x.append(i)
+                y.append(j)
+        plt.figure()
+        for i, j, m, l in zip(x, y, markers, descriptions):
+            plt.scatter(i, j, marker=m)
+            plt.text(i - 0.15, j + 0.15, s=m + ' : ' + l)
+        plt.axis([-0.1, 4.8, -0.1, 4.5])
+        plt.tight_layout()
+        plt.axis('off')
+        plt.show()
