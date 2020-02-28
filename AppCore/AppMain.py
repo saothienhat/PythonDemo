@@ -1,8 +1,9 @@
-# from AppCore.utils.MatplotlibHelper import MatplotlibHelper
+import logging
+from AppCore.utils import MatplotlibHelper, AppLogger
 
-from AppCore.utils import MatplotlibHelper
 
 class AppMain:
+    LOGGER = AppLogger('AppMain')
     matplotlibHelper = None
 
     def __init__(self):
@@ -12,6 +13,7 @@ class AppMain:
         self.matplotlibHelper.showLineChart('Simple line chart', 'X axis', 'yLabel', 8, 8, ['AA', 'BB', 'CC', 'DD'], [1, 4, 9, 16])
 
     def showAllMarkersInfo(self):
+        self.LOGGER.logInfo('Show all Markers info of Matplotlib')
         self.matplotlibHelper.showAllMarkersInfo()
 
 
@@ -26,4 +28,4 @@ Display Line Chart
 # appMain.showSimpleLine()
 
 # Show all markers' name and description in Matplotlib library
-# appMain.showAllMarkersInfo()
+appMain.showAllMarkersInfo()
