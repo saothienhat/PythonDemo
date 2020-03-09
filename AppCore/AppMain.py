@@ -3,15 +3,20 @@ from AppCore.utils import MatplotlibHelper, AppLogger, ApiRequestLibUtils
 from AppCore.database import MySQLConnectionPool
 import pprint
 
+
 class AppMain:
     LOGGER = AppLogger('AppMain')
     matplotlibHelper = None
 
+    def __repr__(self):
+        return "This is description of AppMain class"
+
     def __init__(self):
-        self.matplotlibHelper = MatplotlibHelper()
+        self.   matplotlibHelper = MatplotlibHelper()
 
     def showSimpleLine(self):
-        self.matplotlibHelper.showLineChart('Simple line chart', 'X axis', 'yLabel', 8, 8, ['AA', 'BB', 'CC', 'DD'], [1, 4, 9, 16])
+        self.matplotlibHelper.showLineChart('Simple line chart', 'X axis', 'yLabel', 8, 8, ['AA', 'BB', 'CC', 'DD'],
+                                            [1, 4, 9, 16])
 
     def showAllMarkersInfo(self):
         self.LOGGER.logInfo('Show all Markers info of Matplotlib')
@@ -43,22 +48,22 @@ class AppMain:
         users = ApiRequestLibUtils.doGet(url)
         pprint.pprint(users)
 
+
 ################################################################
 #       RUN APP
 ################################################################
 appMain = AppMain()
+pprint.pprint(appMain)
 
-"""
-Display Line Chart
-"""
+#### Display Line Chart
 # appMain.showSimpleLine()
 
-# Show all markers' name and description in Matplotlib library
+#### Show all markers' name and description in Matplotlib library
 # appMain.showAllMarkersInfo()
 
-# Test connect to MySQL database via connection pooling
+#### Test connect to MySQL database via connection pooling
 # appMain.getConnectionFromPool()
 
 
-# Test API using Requests lib & Pprint lib
+#### Test API using Requests lib & Pprint lib
 # appMain.getRandomUsers()
