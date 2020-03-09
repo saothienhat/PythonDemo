@@ -1,2 +1,5 @@
 date-string
 numpy
+pandas
+postgres
+mysql-connector-python
