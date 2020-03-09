@@ -3,3 +3,4 @@ numpy
 pandas
 postgres
 mysql-connector-python
+pprint

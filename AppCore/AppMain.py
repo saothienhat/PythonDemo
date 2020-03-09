@@ -1,7 +1,7 @@
 import logging
-from AppCore.utils import MatplotlibHelper, AppLogger
+from AppCore.utils import MatplotlibHelper, AppLogger, ApiRequestLibUtils
 from AppCore.database import MySQLConnectionPool
-
+import pprint
 
 class AppMain:
     LOGGER = AppLogger('AppMain')
@@ -38,6 +38,11 @@ class AppMain:
             print("Your connected to - ", record)
             myConnectionPool.closeConnection(conn)
 
+    def getRandomUsers(self):
+        url = 'https://randomuser.me/api/?results=1'
+        users = ApiRequestLibUtils.doGet(url)
+        pprint.pprint(users)
+
 ################################################################
 #       RUN APP
 ################################################################
@@ -53,3 +58,7 @@ Display Line Chart
 
 # Test connect to MySQL database via connection pooling
 # appMain.getConnectionFromPool()
+
+
+# Test API using Requests lib & Pprint lib
+# appMain.getRandomUsers()

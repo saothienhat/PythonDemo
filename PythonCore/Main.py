@@ -3,8 +3,8 @@ import postgres
 import psycopg2
 import mysql.connector
 
-from mysql.connector import Error
-from mysql.connector import pooling
+import requests
+import pprint
 
 data = {
     'x': [1, 2, 3],
@@ -30,31 +30,14 @@ database = 'vnstock'
 # doQuery( myConnection )
 # myConnection.close()
 
-connectionPoolName = 'testing'
-
-try:
-    connection_pool = mysql.connector.pooling.MySQLConnectionPool(pool_name=connectionPoolName,
-                                                                  pool_size=1,
-                                                                  pool_reset_session=True,
-                                                                  host=hostname,
-                                                                  database=database,
-                                                                  user=username,
-                                                                  password=password)
-    print('Created {} - {}' , connection_pool.pool_name, connection_pool.pool_size)
-    # print(connection_pool.pool_size)
-    conn = connection_pool.get_connection()
-    if conn.is_connected:
-        print(conn)
-        cursor = conn.cursor()
-        # cursor.execute('Select database()')
-        # # data = cursor.fetchall
-        # data = cursor.fetchone()
-        # print(data)
-        # cursor.execute("select database()")
-        cursor.execute("select * from stock_info")
-        record = cursor.fetchone()
-        print("Your connected to - ", record)
+numbers = [1, 2, 3, 4, 5, 6, 7]
+evens = [x for x in numbers if x % 2 is 0]
+odds = [y for y in numbers if y not in evens]
+cities = ['London', 'Dublin', 'Oslo']
 
 
-except Error as e:
-    print("DB exception: ", e.message)
+url = 'https://randomuser.me/api/?results=1'
+users = requests.get(url).json()
+# pprint.pprint(users)
+pprint.pprint(cities)
+pprint.pprint(numbers)
