@@ -41,3 +41,4 @@ users = requests.get(url).json()
 # pprint.pprint(users)
 pprint.pprint(cities)
 pprint.pprint(numbers)
+
