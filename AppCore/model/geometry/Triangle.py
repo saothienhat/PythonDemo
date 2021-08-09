@@ -18,3 +18,5 @@ class Triangle(Polygon):
     def displayMultipleInheritanceLevel(self):
         # Display Multiple Inheritance level of the Triangle class
         print(Triangle.mro())
+
+    
